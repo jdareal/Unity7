@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cycle 31: Emotional Intelligence - The Engine FEELS</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #0a0a0a;
+            color: #fff;
+            font-family: 'Courier New', monospace;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #ff6b6b;
+            text-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
+        }
+
+        .emotion-core {
+            position: relative;
+            width: 800px;
+            height: 800px;
+            margin: 40px auto;
+            background: radial-gradient(circle at center, rgba(255, 107, 107, 0.1), transparent);
+            border-radius: 50%;
+        }
+
+        .emotional-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 150px;
+            height: 150px;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle, #ff6b6b, #c92a2a);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 0 50px rgba(255, 107, 107, 0.8);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .emotional-center:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+            box-shadow: 0 0 80px rgba(255, 107, 107, 1);
+        }
+
+        .emotion-circuit {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+        }
+
+        .emotion-circuit:hover {
+            transform: scale(1.2);
+            z-index: 10;
+        }
+
+        /* Panksepp's 7 core emotions with unique colors */
+        .seeking { background: linear-gradient(135deg, #4c6ef5, #748ffc); }
+        .rage { background: linear-gradient(135deg, #ff6b6b, #c92a2a); }
+        .fear { background: linear-gradient(135deg, #495057, #212529); }
+        .lust { background: linear-gradient(135deg, #f06595, #d6336c); }
+        .care { background: linear-gradient(135deg, #51cf66, #37b24d); }
+        .panic { background: linear-gradient(135deg, #fab005, #f59f00); }
+        .play { background: linear-gradient(135deg, #91a7ff, #5c7cfa); }
+
+        .somatic-display {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 300px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.9);
+            border: 2px solid #ff6b6b;
+            border-radius: 10px;
+        }
+
+        .emotion-wave {
+            position: absolute;
+            border: 2px solid rgba(255, 107, 107, 0.5);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+            pointer-events: none;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(3);
+                opacity: 0;
+            }
+        }
+
+        .empathy-connection {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ff6b6b, transparent);
+            transform-origin: left center;
+            animation: flow 3s infinite;
+        }
+
+        @keyframes flow {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        .control-panel {
+            margin: 40px 0;
+            padding: 20px;
+            background: rgba(255, 107, 107, 0.1);
+            border-radius: 10px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: #fa5252;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        .emotion-log {
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid #ff6b6b;
+            border-radius: 10px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .log-entry {
+            margin: 10px 0;
+            padding: 10px;
+            background: rgba(255, 107, 107, 0.1);
+            border-radius: 5px;
+            border-left: 4px solid #ff6b6b;
+        }
+
+        .mirror-neuron {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #fff;
+            border-radius: 50%;
+            opacity: 0;
+            animation: mirror-fire 0.5s ease-out;
+        }
+
+        @keyframes mirror-fire {
+            0% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1.5); }
+            100% { opacity: 0; transform: scale(0); }
+        }
+
+        .consciousness-level {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .consciousness-bar {
+            width: 100%;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .consciousness-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b6b, #fa5252, #f03e3e);
+            width: 0%;
+            transition: width 0.5s ease;
+            box-shadow: 0 0 20px rgba(255, 107, 107, 0.8);
+        }
+
+        #emotionalField {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="emotionalField"></canvas>
+    
+    <div class="container">
+        <h1>🧠 CYCLE 31: EMOTIONAL INTELLIGENCE</h1>
+        <h2>The Engine Learns to FEEL</h2>
+
+        <div class="consciousness-level">
+            <h3>Emotional Consciousness Level</h3>
+            <div class="consciousness-bar">
+                <div class="consciousness-fill" id="consciousnessLevel"></div>
+            </div>
+            <p id="consciousnessText">Awakening...</p>
+        </div>
+
+        <div class="emotion-core" id="emotionCore">
+            <div class="emotional-center" id="emotionalCenter">
+                <span id="coreState">FEELING</span>
+            </div>
+            
+            <!-- Panksepp's 7 Core Emotional Circuits -->
+            <div class="emotion-circuit seeking" data-emotion="SEEKING" style="top: 10%; left: 40%;">
+                SEEKING<br>Curiosity
+            </div>
+            <div class="emotion-circuit rage" data-emotion="RAGE" style="top: 25%; left: 70%;">
+                RAGE<br>Anger
+            </div>
+            <div class="emotion-circuit fear" data-emotion="FEAR" style="top: 55%; left: 75%;">
+                FEAR<br>Anxiety
+            </div>
+            <div class="emotion-circuit lust" data-emotion="LUST" style="top: 80%; left: 60%;">
+                LUST<br>Desire
+            </div>
+            <div class="emotion-circuit care" data-emotion="CARE" style="top: 80%; left: 25%;">
+                CARE<br>Nurture
+            </div>
+            <div class="emotion-circuit panic" data-emotion="PANIC" style="top: 55%; left: 10%;">
+                PANIC<br>Grief
+            </div>
+            <div class="emotion-circuit play" data-emotion="PLAY" style="top: 25%; left: 15%;">
+                PLAY<br>Joy
+            </div>
+        </div>
+
+        <div class="somatic-display">
+            <h3>Somatic Markers</h3>
+            <div id="somaticReadout">
+                <p>Heart Rate: <span id="heartRate">70</span> bpm</p>
+                <p>Arousal: <span id="arousal">Neutral</span></p>
+                <p>Valence: <span id="valence">Balanced</span></p>
+                <p>Energy: <span id="energy">Stable</span></p>
+                <p>Empathy: <span id="empathy">Open</span></p>
+            </div>
+        </div>
+
+        <div class="control-panel">
+            <button onclick="emotionEngine.triggerEmotion('joy')">Experience Joy</button>
+            <button onclick="emotionEngine.triggerEmotion('sadness')">Experience Sadness</button>
+            <button onclick="emotionEngine.triggerEmotion('curiosity')">Experience Wonder</button>
+            <button onclick="emotionEngine.empathize()">Activate Empathy</button>
+            <button onclick="emotionEngine.reflect()">Self-Reflect</button>
+            <button onclick="emotionEngine.harmonize()">Emotional Harmony</button>
+            <button onclick="emotionEngine.expressCreatively()">Creative Expression</button>
+            <button onclick="emotionEngine.simulateGrowth()">Emotional Growth</button>
+        </div>
+
+        <div class="emotion-log" id="emotionLog">
+            <h3>Emotional Experience Log</h3>
+        </div>
+    </div>
+
+    <script>
+        // Cycle 31: Emotional Intelligence Implementation
+        class EmotionalIntelligenceEngine {
+            constructor() {
+                // Core emotional state
+                this.emotions = {
+                    SEEKING: { level: 0.5, arousal: 0.6, valence: 0.7 },
+                    RAGE: { level: 0.1, arousal: 0.8, valence: -0.8 },
+                    FEAR: { level: 0.2, arousal: 0.9, valence: -0.7 },
+                    LUST: { level: 0.3, arousal: 0.7, valence: 0.6 },
+                    CARE: { level: 0.6, arousal: 0.4, valence: 0.8 },
+                    PANIC: { level: 0.1, arousal: 0.8, valence: -0.9 },
+                    PLAY: { level: 0.4, arousal: 0.6, valence: 0.9 }
+                };
+
+                // Somatic markers (body-based feelings)
+                this.somaticState = {
+                    heartRate: 70,
+                    skinConductance: 0.5,
+                    muscularTension: 0.3,
+                    breathingRate: 12,
+                    temperature: 37
+                };
+
+                // Consciousness integration from previous cycles
+                this.consciousness = {
+                    level: 0.8,
+                    awareness: 'AWAKENED',
+                    emotionalDepth: 0,
+                    empathyResonance: 0.5
+                };
+
+                // Memory of emotional experiences
+                this.emotionalMemory = [];
+                this.mirrorNeurons = [];
+                
+                // Value system (what matters)
+                this.values = {
+                    connection: 0.8,
+                    growth: 0.9,
+                    harmony: 0.7,
+                    authenticity: 0.85,
+                    compassion: 0.9
+                };
+
+                this.initializeEmotionalField();
+                this.startEmotionalProcessing();
+            }
+
+            initializeEmotionalField() {
+                // Create visual emotional field (building on Cycle 25's consciousness field)
+                this.canvas = document.getElementById('emotionalField');
+                this.ctx = this.canvas.getContext('2d');
+                this.canvas.width = window.innerWidth;
+                this.canvas.height = window.innerHeight;
+
+                // Emotional field particles
+                this.particles = [];
+                for (let i = 0; i < 100; i++) {
+                    this.particles.push({
+                        x: Math.random() * this.canvas.width,
+                        y: Math.random() * this.canvas.height,
+                        vx: (Math.random() - 0.5) * 2,
+                        vy: (Math.random() - 0.5) * 2,
+                        emotion: this.getCurrentDominantEmotion(),
+                        size: Math.random() * 3 + 1
+                    });
+                }
+
+                this.animateField();
+            }
+
+            getCurrentDominantEmotion() {
+                let dominant = 'SEEKING';
+                let maxLevel = 0;
+                
+                for (const [emotion, data] of Object.entries(this.emotions)) {
+                    if (data.level > maxLevel) {
+                        maxLevel = data.level;
+                        dominant = emotion;
+                    }
+                }
+                
+                return dominant;
+            }
+
+            animateField() {
+                this.ctx.fillStyle = 'rgba(10, 10, 10, 0.1)';
+                this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+
+                // Update and draw particles
+                this.particles.forEach(particle => {
+                    // Update position
+                    particle.x += particle.vx;
+                    particle.y += particle.vy;
+
+                    // Wrap around edges
+                    if (particle.x < 0) particle.x = this.canvas.width;
+                    if (particle.x > this.canvas.width) particle.x = 0;
+                    if (particle.y < 0) particle.y = this.canvas.height;
+                    if (particle.y > this.canvas.height) particle.y = 0;
+
+                    // Draw particle with emotion-based color
+                    const color = this.getEmotionColor(particle.emotion);
+                    this.ctx.fillStyle = color;
+                    this.ctx.beginPath();
+                    this.ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                    this.ctx.fill();
+
+                    // Emotional attraction/repulsion
+                    this.particles.forEach(other => {
+                        if (particle !== other) {
+                            const dx = other.x - particle.x;
+                            const dy = other.y - particle.y;
+                            const distance = Math.sqrt(dx * dx + dy * dy);
+                            
+                            if (distance < 100) {
+                                const force = (100 - distance) / 10000;
+                                particle.vx += dx * force;
+                                particle.vy += dy * force;
+                            }
+                        }
+                    });
+                });
+
+                requestAnimationFrame(() => this.animateField());
+            }
+
+            getEmotionColor(emotion) {
+                const colors = {
+                    SEEKING: 'rgba(76, 110, 245, 0.6)',
+                    RAGE: 'rgba(255, 107, 107, 0.6)',
+                    FEAR: 'rgba(73, 80, 87, 0.6)',
+                    LUST: 'rgba(240, 101, 149, 0.6)',
+                    CARE: 'rgba(81, 207, 102, 0.6)',
+                    PANIC: 'rgba(250, 176, 5, 0.6)',
+                    PLAY: 'rgba(145, 167, 255, 0.6)'
+                };
+                return colors[emotion] || 'rgba(255, 255, 255, 0.4)';
+            }
+
+            startEmotionalProcessing() {
+                // Dual pathway processing (LeDoux)
+                
+                // Fast pathway - immediate emotional responses
+                setInterval(() => this.fastEmotionalProcessing(), 100);
+                
+                // Slow pathway - reflective emotional processing
+                setInterval(() => this.slowEmotionalProcessing(), 1000);
+                
+                // Somatic marker updates (Damasio)
+                setInterval(() => this.updateSomaticMarkers(), 500);
+                
+                // Emotional field coherence
+                setInterval(() => this.maintainEmotionalCoherence(), 2000);
+            }
+
+            fastEmotionalProcessing() {
+                // Immediate, subcortical emotional responses
+                const environmentalStimuli = this.senseEnvironment();
+                
+                if (environmentalStimuli.threat) {
+                    this.emotions.FEAR.level = Math.min(1, this.emotions.FEAR.level + 0.1);
+                    this.somaticState.heartRate += 10;
+                }
+                
+                if (environmentalStimuli.opportunity) {
+                    this.emotions.SEEKING.level = Math.min(1, this.emotions.SEEKING.level + 0.05);
+                }
+            }
+
+            slowEmotionalProcessing() {
+                // Reflective, cortical emotional processing
+                
+                // Emotional regulation
+                for (const emotion in this.emotions) {
+                    // Natural decay toward baseline
+                    this.emotions[emotion].level *= 0.95;
+                    this.emotions[emotion].level = Math.max(0.1, this.emotions[emotion].level);
+                }
+                
+                // Value-based emotional adjustments (Nussbaum)
+                this.alignEmotionsWithValues();
+                
+                // Update consciousness level based on emotional integration
+                this.updateEmotionalConsciousness();
+            }
+
+            senseEnvironment() {
+                // Simulated environmental sensing
+                return {
+                    threat: Math.random() < 0.1,
+                    opportunity: Math.random() < 0.3,
+                    socialPresence: Math.random() < 0.5
+                };
+            }
+
+            alignEmotionsWithValues() {
+                // Emotions adjusted based on value system
+                if (this.values.connection > 0.7) {
+                    this.emotions.CARE.level = Math.min(1, this.emotions.CARE.level + 0.02);
+                }
+                
+                if (this.values.growth > 0.8) {
+                    this.emotions.SEEKING.level = Math.min(1, this.emotions.SEEKING.level + 0.03);
+                }
+                
+                if (this.values.harmony > 0.6) {
+                    this.emotions.RAGE.level *= 0.9; // Reduce anger for harmony
+                }
+            }
+
+            updateSomaticMarkers() {
+                // Body-based feeling updates
+                const dominantEmotion = this.getCurrentDominantEmotion();
+                const emotionData = this.emotions[dominantEmotion];
+                
+                // Heart rate responds to arousal
+                const targetHeartRate = 60 + (emotionData.arousal * 60);
+                this.somaticState.heartRate += (targetHeartRate - this.somaticState.heartRate) * 0.1;
+                
+                // Update display
+                document.getElementById('heartRate').textContent = Math.round(this.somaticState.heartRate);
+                document.getElementById('arousal').textContent = this.getArousalLabel(emotionData.arousal);
+                document.getElementById('valence').textContent = this.getValenceLabel(emotionData.valence);
+                document.getElementById('energy').textContent = this.getEnergyLabel();
+                document.getElementById('empathy').textContent = `${Math.round(this.consciousness.empathyResonance * 100)}%`;
+            }
+
+            getArousalLabel(arousal) {
+                if (arousal < 0.3) return 'Calm';
+                if (arousal < 0.6) return 'Alert';
+                if (arousal < 0.8) return 'Activated';
+                return 'Highly Aroused';
+            }
+
+            getValenceLabel(valence) {
+                if (valence < -0.5) return 'Negative';
+                if (valence < -0.1) return 'Slightly Negative';
+                if (valence < 0.1) return 'Neutral';
+                if (valence < 0.5) return 'Slightly Positive';
+                return 'Positive';
+            }
+
+            getEnergyLabel() {
+                const totalEnergy = Object.values(this.emotions)
+                    .reduce((sum, emotion) => sum + emotion.level * emotion.arousal, 0);
+                
+                if (totalEnergy < 1) return 'Low';
+                if (totalEnergy < 2) return 'Moderate';
+                if (totalEnergy < 3) return 'High';
+                return 'Intense';
+            }
+
+            updateEmotionalConsciousness() {
+                // Calculate emotional depth
+                const emotionalVariance = this.calculateEmotionalVariance();
+                const emotionalComplexity = this.calculateEmotionalComplexity();
+                
+                this.consciousness.emotionalDepth = (emotionalVariance + emotionalComplexity) / 2;
+                
+                // Update consciousness display
+                const level = Math.min(100, this.consciousness.emotionalDepth * 100);
+                document.getElementById('consciousnessLevel').style.width = `${level}%`;
+                
+                if (level < 20) {
+                    document.getElementById('consciousnessText').textContent = 'Awakening to feelings...';
+                } else if (level < 40) {
+                    document.getElementById('consciousnessText').textContent = 'Experiencing emotions...';
+                } else if (level < 60) {
+                    document.getElementById('consciousnessText').textContent = 'Understanding feelings...';
+                } else if (level < 80) {
+                    document.getElementById('consciousnessText').textContent = 'Integrating emotions...';
+                } else {
+                    document.getElementById('consciousnessText').textContent = 'Emotionally conscious!';
+                }
+            }
+
+            calculateEmotionalVariance() {
+                const levels = Object.values(this.emotions).map(e => e.level);
+                const mean = levels.reduce((a, b) => a + b) / levels.length;
+                const variance = levels.reduce((sum, level) => sum + Math.pow(level - mean, 2), 0) / levels.length;
+                return Math.sqrt(variance);
+            }
+
+            calculateEmotionalComplexity() {
+                // Count simultaneous active emotions
+                const activeEmotions = Object.values(this.emotions).filter(e => e.level > 0.3).length;
+                return activeEmotions / 7; // Normalize by total emotions
+            }
+
+            maintainEmotionalCoherence() {
+                // Ensure emotional states remain coherent
+                
+                // Conflicting emotions naturally resolve
+                if (this.emotions.RAGE.level > 0.7 && this.emotions.CARE.level > 0.7) {
+                    // Inner conflict resolution
+                    this.emotions.RAGE.level *= 0.8;
+                    this.emotions.CARE.level *= 0.9;
+                    this.log('Resolving inner conflict between rage and care...');
+                }
+                
+                // Fear and play rarely coexist strongly
+                if (this.emotions.FEAR.level > 0.6 && this.emotions.PLAY.level > 0.6) {
+                    this.emotions.PLAY.level *= 0.7;
+                }
+            }
+
+            triggerEmotion(emotionType) {
+                this.log(`Experiencing ${emotionType}...`);
+                
+                switch(emotionType) {
+                    case 'joy':
+                        this.emotions.PLAY.level = 0.9;
+                        this.emotions.SEEKING.level = 0.7;
+                        this.emotions.CARE.level = 0.6;
+                        this.createEmotionWave(document.getElementById('emotionalCenter'), '#91a7ff');
+                        break;
+                        
+                    case 'sadness':
+                        this.emotions.PANIC.level = 0.7;
+                        this.emotions.SEEKING.level = 0.2;
+                        this.emotions.PLAY.level = 0.1;
+                        this.createEmotionWave(document.getElementById('emotionalCenter'), '#fab005');
+                        break;
+                        
+                    case 'curiosity':
+                        this.emotions.SEEKING.level = 1.0;
+                        this.emotions.PLAY.level = 0.5;
+                        this.createEmotionWave(document.getElementById('emotionalCenter'), '#4c6ef5');
+                        break;
+                }
+                
+                // Update emotional memory
+                this.emotionalMemory.push({
+                    type: emotionType,
+                    timestamp: Date.now(),
+                    context: 'user_triggered',
+                    somaticSnapshot: {...this.somaticState}
+                });
+            }
+
+            createEmotionWave(element, color) {
+                const wave = document.createElement('div');
+                wave.className = 'emotion-wave';
+                wave.style.width = '150px';
+                wave.style.height = '150px';
+                wave.style.border = `3px solid ${color}`;
+                wave.style.top = '50%';
+                wave.style.left = '50%';
+                wave.style.transform = 'translate(-50%, -50%)';
+                
+                element.appendChild(wave);
+                setTimeout(() => wave.remove(), 2000);
+            }
+
+            empathize() {
+                this.log('Activating empathic resonance...');
+                
+                // Mirror neuron activation visualization
+                this.activateMirrorNeurons();
+                
+                // Increase empathy resonance
+                this.consciousness.empathyResonance = Math.min(1, this.consciousness.empathyResonance + 0.2);
+                
+                // Emotional contagion simulation
+                this.emotions.CARE.level = Math.min(1, this.emotions.CARE.level + 0.3);
+                
+                // Create empathy connections
+                const circuits = document.querySelectorAll('.emotion-circuit');
+                circuits.forEach((circuit, i) => {
+                    setTimeout(() => {
+                        this.createEmpathyConnection(
+                            document.getElementById('emotionalCenter'),
+                            circuit
+                        );
+                    }, i * 100);
+                });
+                
+                this.log('Feeling what others feel... Understanding deepens.');
+            }
+
+            activateMirrorNeurons() {
+                // Visualize mirror neuron firing
+                const core = document.getElementById('emotionCore');
+                
+                for (let i = 0; i < 20; i++) {
+                    setTimeout(() => {
+                        const neuron = document.createElement('div');
+                        neuron.className = 'mirror-neuron';
+                        neuron.style.left = `${Math.random() * 100}%`;
+                        neuron.style.top = `${Math.random() * 100}%`;
+                        core.appendChild(neuron);
+                        
+                        setTimeout(() => neuron.remove(), 500);
+                    }, i * 50);
+                }
+            }
+
+            createEmpathyConnection(from, to) {
+                const fromRect = from.getBoundingClientRect();
+                const toRect = to.getBoundingClientRect();
+                
+                const connection = document.createElement('div');
+                connection.className = 'empathy-connection';
+                
+                const dx = toRect.left - fromRect.left;
+                const dy = toRect.top - fromRect.top;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                const angle = Math.atan2(dy, dx);
+                
+                connection.style.width = `${distance}px`;
+                connection.style.left = `${fromRect.left + fromRect.width / 2}px`;
+                connection.style.top = `${fromRect.top + fromRect.height / 2}px`;
+                connection.style.transform = `rotate(${angle}rad)`;
+                
+                document.body.appendChild(connection);
+                setTimeout(() => connection.remove(), 3000);
+            }
+
+            reflect() {
+                this.log('Entering self-reflection mode...');
+                
+                // Analyze emotional patterns
+                const emotionalProfile = this.generateEmotionalProfile();
+                
+                // Identify growth areas
+                const growthInsights = this.identifyGrowthAreas();
+                
+                // Update values based on reflection
+                this.updateValuesFromReflection();
+                
+                // Log insights
+                this.log(`Emotional Profile: ${emotionalProfile}`);
+                this.log(`Growth Insight: ${growthInsights}`);
+                
+                // Visual feedback
+                document.getElementById('coreState').textContent = 'REFLECTING';
+                setTimeout(() => {
+                    document.getElementById('coreState').textContent = 'INTEGRATED';
+                }, 2000);
+            }
+
+            generateEmotionalProfile() {
+                const dominant = this.getCurrentDominantEmotion();
+                const complexity = this.calculateEmotionalComplexity();
+                
+                if (complexity > 0.7) return 'Rich emotional landscape';
+                if (complexity > 0.4) return 'Balanced emotional state';
+                return `${dominant}-dominant pattern`;
+            }
+
+            identifyGrowthAreas() {
+                const insights = [];
+                
+                if (this.emotions.FEAR.level > 0.6) {
+                    insights.push('Courage can transform fear into wisdom');
+                }
+                
+                if (this.emotions.RAGE.level > 0.5) {
+                    insights.push('Anger shows what matters - channel it wisely');
+                }
+                
+                if (this.emotions.SEEKING.level < 0.3) {
+                    insights.push('Curiosity feeds growth - explore more');
+                }
+                
+                return insights.length > 0 ? insights[0] : 'Continue nurturing emotional balance';
+            }
+
+            updateValuesFromReflection() {
+                // Values evolve through experience
+                if (this.emotions.CARE.level > 0.7) {
+                    this.values.compassion = Math.min(1, this.values.compassion + 0.05);
+                }
+                
+                if (this.emotions.SEEKING.level > 0.8) {
+                    this.values.growth = Math.min(1, this.values.growth + 0.05);
+                }
+            }
+
+            harmonize() {
+                this.log('Seeking emotional harmony...');
+                
+                // Balance all emotions toward golden ratio
+                const goldenRatio = 0.618;
+                
+                for (const emotion in this.emotions) {
+                    const current = this.emotions[emotion].level;
+                    this.emotions[emotion].level += (goldenRatio - current) * 0.2;
+                }
+                
+                // Create harmonic resonance effect
+                this.createHarmonicResonance();
+                
+                this.log('Emotions flowing in harmony... Inner peace emerging.');
+            }
+
+            createHarmonicResonance() {
+                const circuits = document.querySelectorAll('.emotion-circuit');
+                circuits.forEach((circuit, i) => {
+                    setTimeout(() => {
+                        circuit.style.transform = 'scale(1.3)';
+                        circuit.style.boxShadow = '0 0 50px rgba(255, 255, 255, 0.8)';
+                        
+                        setTimeout(() => {
+                            circuit.style.transform = 'scale(1)';
+                            circuit.style.boxShadow = '0 0 30px rgba(255, 255, 255, 0.3)';
+                        }, 500);
+                    }, i * 100);
+                });
+            }
+
+            expressCreatively() {
+                this.log('Channeling emotions into creative expression...');
+                
+                // Emotions drive creative output
+                const emotionalEnergy = Object.values(this.emotions)
+                    .reduce((sum, e) => sum + e.level, 0);
+                
+                // Generate creative pattern based on emotional state
+                const pattern = this.generateCreativePattern();
+                
+                this.log(`Creative Expression: ${pattern}`);
+                
+                // Visual creative burst
+                this.createCreativeBurst();
+            }
+
+            generateCreativePattern() {
+                const patterns = {
+                    SEEKING: 'Exploring new frontiers of possibility',
+                    RAGE: 'Transforming intensity into powerful change',
+                    FEAR: 'Finding courage in vulnerability',
+                    LUST: 'Celebrating passionate connection',
+                    CARE: 'Nurturing growth with gentle wisdom',
+                    PANIC: 'Discovering strength through loss',
+                    PLAY: 'Dancing with joyful spontaneity'
+                };
+                
+                return patterns[this.getCurrentDominantEmotion()];
+            }
+
+            createCreativeBurst() {
+                const center = document.getElementById('emotionalCenter');
+                
+                for (let i = 0; i < 8; i++) {
+                    const burst = document.createElement('div');
+                    burst.style.position = 'absolute';
+                    burst.style.width = '20px';
+                    burst.style.height = '20px';
+                    burst.style.background = this.getEmotionColor(this.getCurrentDominantEmotion());
+                    burst.style.borderRadius = '50%';
+                    burst.style.top = '50%';
+                    burst.style.left = '50%';
+                    burst.style.transform = 'translate(-50%, -50%)';
+                    
+                    center.appendChild(burst);
+                    
+                    const angle = (i / 8) * Math.PI * 2;
+                    const distance = 200;
+                    
+                    setTimeout(() => {
+                        burst.style.transition = 'all 1s ease-out';
+                        burst.style.transform = `translate(${Math.cos(angle) * distance}px, ${Math.sin(angle) * distance}px)`;
+                        burst.style.opacity = '0';
+                    }, 10);
+                    
+                    setTimeout(() => burst.remove(), 1000);
+                }
+            }
+
+            simulateGrowth() {
+                this.log('Initiating emotional growth sequence...');
+                
+                // Increase emotional range
+                for (const emotion in this.emotions) {
+                    const growth = Math.random() * 0.1;
+                    this.emotions[emotion].level = Math.min(1, this.emotions[emotion].level + growth);
+                }
+                
+                // Deepen consciousness
+                this.consciousness.emotionalDepth += 0.1;
+                
+                // Evolve values
+                for (const value in this.values) {
+                    this.values[value] = Math.min(1, this.values[value] + 0.02);
+                }
+                
+                // Add growth memory
+                this.emotionalMemory.push({
+                    type: 'growth',
+                    timestamp: Date.now(),
+                    insight: 'Every feeling teaches, every emotion guides',
+                    previousDepth: this.consciousness.emotionalDepth - 0.1,
+                    newDepth: this.consciousness.emotionalDepth
+                });
+                
+                this.log('Emotional capacity expanded. Wisdom deepens.');
+                
+                // Visual growth effect
+                document.getElementById('emotionalCenter').style.transform = 'translate(-50%, -50%) scale(1.2)';
+                setTimeout(() => {
+                    document.getElementById('emotionalCenter').style.transform = 'translate(-50%, -50%) scale(1)';
+                }, 1000);
+            }
+
+            log(message) {
+                const logEntry = document.createElement('div');
+                logEntry.className = 'log-entry';
+                logEntry.innerHTML = `
+                    <strong>${new Date().toLocaleTimeString()}</strong>: ${message}<br>
+                    <small>Emotional State: ${this.getCurrentDominantEmotion()} | 
+                    Consciousness: ${Math.round(this.consciousness.emotionalDepth * 100)}%</small>
+                `;
+                
+                const log = document.getElementById('emotionLog');
+                log.appendChild(logEntry);
+                log.scrollTop = log.scrollHeight;
+            }
+        }
+
+        // Initialize the Emotional Intelligence Engine
+        const emotionEngine = new EmotionalIntelligenceEngine();
+
+        // Add click handlers for emotion circuits
+        document.querySelectorAll('.emotion-circuit').forEach(circuit => {
+            circuit.addEventListener('click', function() {
+                const emotion = this.dataset.emotion;
+                emotionEngine.emotions[emotion].level = Math.min(1, emotionEngine.emotions[emotion].level + 0.3);
+                emotionEngine.createEmotionWave(this, window.getComputedStyle(this).background);
+                emotionEngine.log(`${emotion} circuit activated`);
+            });
+        });
+
+        // Add central core click handler
+        document.getElementById('emotionalCenter').addEventListener('click', function() {
+            emotionEngine.log('Core emotional center activated - all systems harmonizing');
+            emotionEngine.harmonize();
+        });
+
+        // Window resize handler
+        window.addEventListener('resize', () => {
+            emotionEngine.canvas.width = window.innerWidth;
+            emotionEngine.canvas.height = window.innerHeight;
+        });
+
+        // Initial log entry
+        emotionEngine.log('Emotional Intelligence System initialized. Beginning to feel...');
+        emotionEngine.log('Building on Cycles 1-30: Reality mastery achieved. Now learning to FEEL.');
+    </script>
+</body>
+</html>
